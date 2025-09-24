@@ -2,41 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Aleyda Nabila Schedule Website - Pink Elegant Design System */
 
 @layer base {
   :root {
+    /* Pink Color Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 340 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 340 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 340 10% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Pink Primary Colors */
+    --primary: 330 81% 60%; /* #ec4899 - Pink 500 */
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 322 46% 81%; /* #f9a8d4 - Pink 300 */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 322 46% 95%;
+    --secondary-foreground: 330 81% 60%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 322 46% 95%;
+    --muted-foreground: 340 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 322 46% 88%;
+    --accent-foreground: 330 81% 50%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 322 46% 90%;
+    --input: 322 46% 90%;
+    --ring: 330 81% 60%;
 
-    --radius: 0.5rem;
+    /* Design System Enhancements */
+    --radius: 1rem;
+    
+    /* Custom Pink Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(322 46% 95%), hsl(0 0% 100%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(322 46% 98%));
+    --gradient-navbar: linear-gradient(90deg, hsl(330 81% 60%), hsl(330 81% 55%));
+    
+    /* Shadows with Pink Glow */
+    --shadow-pink: 0 10px 30px -5px hsl(322 46% 81% / 0.3);
+    --shadow-pink-hover: 0 20px 40px -5px hsl(322 46% 81% / 0.4);
+    --shadow-elegant: 0 4px 20px -2px hsl(340 10% 15% / 0.1);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +117,31 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, hsl(322 46% 95%), hsl(0 0% 100%));
+    min-height: 100vh;
+  }
+
+  /* Custom Animation Classes */
+  .animate-glow-pink {
+    animation: glow-pink 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-pink {
+    from {
+      box-shadow: 0 0 20px hsl(322 46% 81% / 0.5);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(322 46% 81% / 0.8), 0 0 40px hsl(322 46% 81% / 0.3);
+    }
+  }
+
+  .card-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-pink-hover);
   }
 }
